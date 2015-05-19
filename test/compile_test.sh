@@ -5,7 +5,7 @@
 GRAILS_TEST_CACHE="/tmp/grails_test_cache"
 DEFAULT_GRAILS_VERSION="1.3.7"
 DEFAULT_JETTY_RUNNER_VERSION="7.5.4.v20111024"
-DEFAULT_WEBAPP_RUNNER_VERSION="7.0.40.0"
+DEFAULT_WEBAPP_RUNNER_VERSION="7.0.57.2"
 
 installGrails()
 {
@@ -231,6 +231,7 @@ testJettyRunnerSelection()
 {
   createGrailsApp
   echo "grails.application.container=jetty" > ${BUILD_DIR}/system.properties
+  echo "java.runtime.version=1.6" >> ${BUILD_DIR}/system.properties
   assertFalse "Precondition: No server directory should be present" "[ -d ${BUILD_DIR}/server ]"
   assertTrue  "Precondition: system.properties file should be in build dir" "[ -f ${BUILD_DIR}/system.properties ]"
 
